@@ -1,7 +1,7 @@
 name: Comment with Action/API
 
 on:
-  issue: [opened]
+  issues: [opened]
 
 jobs:
   comment_with_action:
