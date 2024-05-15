@@ -2,13 +2,13 @@ name: Comment with Action/API
 
 on:
   issues:
-    types: [opened]
+    types: [opened, edited]
 
 jobs:
   comment_with_action:
     runs-on: ubuntu-latest
     steps:
-      - name: c-with-action
+      - name: Create comment
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.issue.number }}
@@ -16,4 +16,6 @@ jobs:
             This is a multi-line test comment
             - With GitHub **Markdown** :sparkles:
             - Created by [create-or-update-comment][1]
+
+            [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: '+1'
