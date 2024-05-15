@@ -24,12 +24,12 @@ jobs:
     steps:
       - name: Create API comment
         run: |
-          gh api -X POST https://api.github.com/repos/$OWNER/$REPO/issues/$ISSUE_NUMBER/comments \
+          gh api -X POST https://api.github.com/repos/${{ vars.OWNER }}/${{ vars.REPO }}/issues/${{ vars.ISSUE_NUMBER }}/comments \
           -f "body=
             Comment but from API
           "
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      OWNER: ${{ github.event.organization.login }}
-      REPO: ${{ github.event.repository.name }}
-      ISSUE_NUMBER: ${{ github.event.issue.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.event.organization.login }}
+          REPO: ${{ github.event.repository.name }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
