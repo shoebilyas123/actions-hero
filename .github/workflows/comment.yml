@@ -22,9 +22,13 @@ jobs:
   comment_with_api:
     runs-on: ubuntu-latest
     steps:
+      - name: hello_world
+        run: echo ${{ github }}
+        shell: bash
+
       - name: Create API comment
         run: |
-          gh api -X POST https://api.github.com/repos/${{ env.OWNER }}/${{ env.REPO }}/issues/${{ env.ISSUE_NUMBER }}/comments \
+          gh api -X POST https://api.github.com/repos/${{env.OWNER}}/${{env.REPO}}/issues/${{env.ISSUE_NUMBER}}/comments \
           -f "body=
             Comment but from API
           "
