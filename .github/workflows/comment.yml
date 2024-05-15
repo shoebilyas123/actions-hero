@@ -28,8 +28,8 @@ jobs:
           -f "body=
             Comment but from API
           "
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OWNER: ${{ github.event.organization.login }}
-          REPO: ${{ github.event.repository.name }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      OWNER: ${{ github.event.organization.login }}
+      REPO: ${{ github.event.repository.name }}
+      ISSUE_NUMBER: ${{ github.event.issue.number }}
