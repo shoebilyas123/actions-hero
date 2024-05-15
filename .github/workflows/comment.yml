@@ -1,0 +1,18 @@
+name: Comment with Action/API
+
+on:
+  issue: [opened]
+
+jobs:
+  comment_with_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: c-with-action
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.issue.nunber }}
+          body: |
+            This is a multi-line test comment
+            - With GitHub **Markdown** :sparkles:
+            - Created by [create-or-update-comment][1]
+          reactions: '+1'
